@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>
+        Payments
+    </title>
+    <style>
+        body {
+            background-image:url('https://static.turbosquid.com/Preview/001163/407/D5/presentations-background-3D-model_Z.jpg');
+        }
+        pre { 
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                color: black 
+                
+            }  
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <div>
+            <div align='center'>
+                <br/><br/>
+                <h2 style="font-size:1.8vw;" align='center'>PAYMENT MANAGEMENT</h2>
+                <br/><br/>     
+                <form action="/payments" method="post">
+                    <table class="table">
+                        <pre><h4 style="font-size:1.5vw;" align='center'>Add a new Payment</h4></pre>
+                        <tr>
+                            <td><input class="form-control" type="text" name="paydescription" placeholder ="New Description"></td>
+                            <td><input class="form-control" type="date" required pattern="\d{4}-\d{2}-\d{2}" name="paydate"></td>
+                            <td><input class="form-control" type="number" name="payamount" placeholder ="Amount"></td>
+                            <td>
+                                <select class="form-control" selected="test" name="paymethod">
+                                    <option selected disabled>Payment Method</option>
+                                    <option>Google Pay</option>
+                                    <option>Bank Transfer</option>
+                                    <option>Cash</option>
+                                </select>          
+                            </td>
+
+                        </tr>
+                    </table> 
+                    <br></br><button class="btn btn-primary col-2">Submit</button><br></br><br></br>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+    <div class="row">
+        <div class="center-block shadow p-3 mb-5 bg-white rounded col-12">
+            <table class="table">
+                <pre><h4 style="font-size:1.5vw;" align='center'>List of Payments Made</h4></pre>
+                <tr style="font-size:1vw;">
+                    <th>Sl.No</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Payment Method</th>
+                </tr>
+                {% for item in values %}
+                    <tr style="font-size:1vw;">
+                        <td>{{ loop.index }}</td>
+                        <td>{{item[1]}}</td>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[3]}}</td>
+                        <td>{{item[4]}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

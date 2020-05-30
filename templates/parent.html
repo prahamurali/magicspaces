@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Welcome</title>
+    <style>
+        body {
+            background-image:url('https://www.expenseanywhere.com/wp-content/uploads/2016/09/website-backgrounds-E280AB1E280AC-E280ABE280AC.jpg');
+        }
+     </style>
+{% endblock %}
+
+{% block body %}
+
+        <div class="col-6 mx-auto">
+            <form action="/parent" method="post">
+                <br></br><br></br><br></br><br></br><br></br>
+                <h2 style="font-size:1.8vw;" align=''>LOGIN</h2><br></br>
+                <input  id="hello" class="form-control col-4" type="text" align="center" name="username" placeholder ="Username"><br></br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="btn btn-primary" align="center">Lets Go!</button>
+            </form>  
+        </div>
+
+
+{% endblock %}
